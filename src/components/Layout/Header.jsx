@@ -4,8 +4,18 @@ import { FaCartShopping } from 'react-icons/fa6'
 import { headerNavigateItem } from './constants'
 import { Link, useNavigate } from 'react-router-dom'
 import { BaseButton } from '../Button'
+import { useDispatch, useSelector } from 'react-redux'
+import { IoMdPerson } from "react-icons/io";
+import Menu from '../Menu/Menu'
+import { logoutSuccess } from '../../redux/slice/AuthSlice'
 const Header = () => {
   const navigate = useNavigate()
+  const currentUser = useSelector((state) => state.auth.currentUser)
+  const dispatch = useDispatch()
+  const handleLogout = () => {
+    dispatch(logoutSuccess())
+    navigate('/sign-in')
+  }
   return (
     <div className="">
       <div className="container mx-auto flex items-center py-6 justify-between px-[100px] ">
@@ -38,13 +48,28 @@ const Header = () => {
             <FaCartShopping />
           </div>
           <div>
-            <div>
-              <BaseButton
-                handleClick={() => navigate('sign-in')}
-                title="Đăng ký/ Đăng nhập"
-                className="bg-gray-200 text-gray-text border-[1px] hover:bg-primary hover:text-white"
-              />
-            </div>
+            {currentUser ? (
+              <div className='flex items-center space-x-4' >
+                <Menu
+                  icon={<IoMdPerson size="24" />}
+                  items={[
+                    { label: 'Profile', },
+                    { label: 'Settings', },
+                    { label: 'Logout', onClick: () => handleLogout() },
+                  ]}
+                />
+
+                <p> {currentUser.account.fullName}</p>
+              </div>
+            ) : (
+              <div>
+                <BaseButton
+                  handleClick={() => navigate('sign-in')}
+                  title="Đăng ký/ Đăng nhập"
+                  className="bg-gray-200 text-gray-text border-[1px] hover:bg-primary hover:text-white"
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -52,7 +77,7 @@ const Header = () => {
         <div className="container mx-auto px-[100px] py-3 space-x-8 flex">
           {headerNavigateItem.map((item) => {
             return (
-              <Link to={item.link}>
+              <Link key={item.id} to={item.link}>
                 <p
                   key={item.id}
                   className="text-white font-medium hover:text-primary cursor-pointer"

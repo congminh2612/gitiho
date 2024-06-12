@@ -11,7 +11,7 @@ const NewsScreen = () => {
         data?.data.map((item) => {
           return (
             <div key={item.newIds} className="flex space-x-2">
-              <img src={item.image} width='700px' alt="" />
+              <img src={item.image} width="700px" alt="" />
               <div className="pl-6">
                 <p className="text-lg text-gray-1 font-semibold">
                   {item.title}

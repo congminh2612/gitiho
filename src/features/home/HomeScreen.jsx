@@ -1,17 +1,16 @@
 import React from 'react'
 import BannerSlider from './components/BannerSlider'
+import { useNavigate } from 'react-router-dom'
 
 const HomeScreen = () => {
+  const navigate = useNavigate()
   return (
     <div>
-      {/* <div className="bg-primary">
-        <img
-          src="https://gitiho.com/images/banner/2024/05_13/c4079c36085fd5947eccaa8fd60e0883.png"
-          alt=""
-        />
-      </div> */}
       <BannerSlider />
-      <div className="container mx-auto px-[100px]">
+      <div
+        className="container mx-auto px-[100px]"
+        onClick={() => navigate('/courses')}
+      >
         <p className="text-xl pt-10 font-bold">Khóa học ưu dãi</p>
         <div className="grid grid-cols-4 gap-8 pt-6">
           <div className="col-span-1">
@@ -48,7 +47,10 @@ const HomeScreen = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto px-[100px] pt-10">
+      <div
+        className="container mx-auto px-[100px] pt-10"
+        onClick={() => navigate('/courses')}
+      >
         <p className="text-xl pt-10 font-bold">Khóa học đựơc nhiều người đọc</p>
         <div className="grid grid-cols-4 gap-8 pt-6">
           <div className="col-span-1">
@@ -85,7 +87,10 @@ const HomeScreen = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto px-[100px]">
+      <div
+        className="container mx-auto px-[100px]"
+        onClick={() => navigate('/courses')}
+      >
         <p className="text-xl pt-10 font-bold">Khóa học ưu dãi</p>
         <div className="grid grid-cols-4 gap-8 pt-6">
           <div className="col-span-1">

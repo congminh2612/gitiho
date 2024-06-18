@@ -13,6 +13,7 @@ import NewsScreen from './features/news/NewsScreen'
 import ForumScreen from './features/forum/ForumScreen'
 import LearningProcess from './features/learning-process/LearningProcess'
 import LearningSelf from './features/learning-self/LearningSelf'
+import NewDetail from './features/news/NewDetail'
 
 function App() {
   const queryClient = new QueryClient()
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route path="/" element={<HomeScreen />} />
             <Route path="/news" element={<NewsScreen />} />
+            <Route path="/news/:id" element={<NewDetail />} />
             <Route path="/forum" element={<ForumScreen />} />
             <Route path="/learning-process" element={<LearningProcess />} />
             <Route path="/learning-self" element={<LearningSelf />} />

@@ -1,14 +1,16 @@
 import React from 'react'
+import BannerSlider from './components/BannerSlider'
 
 const HomeScreen = () => {
   return (
     <div>
-      <div className="bg-primary">
+      {/* <div className="bg-primary">
         <img
           src="https://gitiho.com/images/banner/2024/05_13/c4079c36085fd5947eccaa8fd60e0883.png"
           alt=""
         />
-      </div>
+      </div> */}
+      <BannerSlider />
       <div className="container mx-auto px-[100px]">
         <p className="text-xl pt-10 font-bold">Khóa học ưu dãi</p>
         <div className="grid grid-cols-4 gap-8 pt-6">

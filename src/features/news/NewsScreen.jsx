@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 import { news } from './services/news'
+import { useNavigate } from 'react-router-dom'
 
 const NewsScreen = () => {
+  const navigate = useNavigate()
   const { data } = useQuery({ queryKey: ['news'], queryFn: news })
   console.log('data', data?.data)
   return (
@@ -10,7 +12,11 @@ const NewsScreen = () => {
       {data?.data &&
         data?.data.map((item) => {
           return (
-            <div key={item.newIds} className="flex space-x-2">
+            <div
+              key={item.newIds}
+              className="flex space-x-2 cursor-pointer"
+              onClick={() => navigate(`${item.newsId}`)}
+            >
               <img src={item.image} width="700px" alt="" />
               <div className="pl-6">
                 <p className="text-lg text-gray-1 font-semibold">

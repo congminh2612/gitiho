@@ -5,7 +5,7 @@ import { headerNavigateItem } from './constants'
 import { Link, useNavigate } from 'react-router-dom'
 import { BaseButton } from '../Button'
 import { useDispatch, useSelector } from 'react-redux'
-import { IoMdPerson } from "react-icons/io";
+import { IoMdPerson } from 'react-icons/io'
 import Menu from '../Menu/Menu'
 import { logoutSuccess } from '../../redux/slice/AuthSlice'
 const Header = () => {
@@ -49,13 +49,13 @@ const Header = () => {
           </div>
           <div>
             {currentUser ? (
-              <div className='flex items-center space-x-4' >
+              <div className="flex items-center space-x-4">
                 <Menu
                   icon={<IoMdPerson size="24" />}
                   items={[
-                    { label: 'Profile', },
-                    { label: 'Settings', },
-                    { label: 'Logout', onClick: () => handleLogout() },
+                    { label: 'Profile' },
+                    { label: 'Settings' },
+                    { label: 'Logout', onClick: () => handleLogout() }
                   ]}
                 />
 

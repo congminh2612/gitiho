@@ -7,19 +7,28 @@ import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { signUp } from './services/signUp'
 import toast, { Toaster } from 'react-hot-toast'
-import { z } from 'zod';
-import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 const SignUpScreen = () => {
   const schema = z.object({
-    fullName: z.string().min(1, { message: "Không được để trống trường này" }),
-    phoneNumber: z.string()
-      .min(10, { message: "Số điện thoại không hợp lệ" })
-      .max(11, { message: "Số điện thoại không hợp lệ" }),
+    fullName: z.string().min(1, { message: 'Không được để trống trường này' }),
+    phoneNumber: z
+      .string()
+      .min(10, { message: 'Số điện thoại không hợp lệ' })
+      .max(11, { message: 'Số điện thoại không hợp lệ' }),
 
-    email: z.string().min(1, { message: "Không được để trống trường này" }).email({ message: "Email không hợp lệ" }),
-  });
-  const { handleSubmit, register, reset, formState: { errors } } = useForm({ resolver: zodResolver(schema) })
+    email: z
+      .string()
+      .min(1, { message: 'Không được để trống trường này' })
+      .email({ message: 'Email không hợp lệ' })
+  })
+  const {
+    handleSubmit,
+    register,
+    reset,
+    formState: { errors }
+  } = useForm({ resolver: zodResolver(schema) })
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const mutation = useMutation({
@@ -33,7 +42,7 @@ const SignUpScreen = () => {
       }
     },
     onError(err) {
-      toast.error("Xảy ra lỗi trong quá trình đăng ký")
+      toast.error('Xảy ra lỗi trong quá trình đăng ký')
     }
   })
   const onSubmit = (data) => {
@@ -42,13 +51,7 @@ const SignUpScreen = () => {
   return (
     <div className="max-w-[600px] mx-auto h-[900px] my-[100px] shadow-lg shadow-blue-400">
       <div>
-        <Toaster
-          position="top-center"
-          reverseOrder={false}
-          toastOptions={{
-
-          }}
-        />
+        <Toaster position="top-center" reverseOrder={false} toastOptions={{}} />
       </div>
       <p className="text-center pt-10 text-2xl text-[#334d6e;]">ĐĂNG NHẬP</p>
       <div className="flex flex-col justify-center items-center pt-6">
@@ -104,7 +107,6 @@ const SignUpScreen = () => {
                   type="text"
                   placeholder="Email"
                   {...register('email')}
-
                 />
                 {errors.email && (
                   <p className="ml-2 pt-2 text-sm text-red-500">

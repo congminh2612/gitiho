@@ -1,4 +1,5 @@
 import authReducer from './slice/AuthSlice'
+import modalReducer from './slice/ModalSlice'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import {
   FLUSH,
@@ -15,11 +16,13 @@ import storage from 'redux-persist/lib/storage'
 const persistConfig = {
   key: 'root',
   version: 1,
-  storage
+  storage,
+  blacklist: ['modal']
 }
 
 const rootReducer = combineReducers({
-  auth: authReducer
+  auth: authReducer,
+  modal: modalReducer
 })
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 

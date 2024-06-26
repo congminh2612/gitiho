@@ -1,6 +1,5 @@
 import React from 'react'
 import { twMerge } from 'tailwind-merge'
-import Label from './Label'
 import clsx from 'clsx'
 
 const TextInput = React.forwardRef(

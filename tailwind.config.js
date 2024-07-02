@@ -8,6 +8,9 @@ export default {
         primary: '#d91b5c',
         'gray-1': '#334d6e',
         'gray-text': '#212529'
+      },
+      backgroundImage: {
+        subject: 'linear-gradient(to right, #eb3349, #f45c43)'
       }
     }
   },

@@ -12,13 +12,8 @@ const Question = ({ index, question, onAnswerSelect, showAnswer }) => {
         { label: 'D', content: optionD },
     ];
 
-    // Retrieve correct answer from question data
     const correctAnswer = answerName;
-
-    // Check if user's selected option is correct
     const isCorrect = selectedOption !== null && options[selectedOption].label === correctAnswer;
-
-    // Function to handle option click
     const handleOptionClick = (index) => {
         setSelectedOption(index);
         onAnswerSelect(question.questionId, options[index].label);
@@ -38,9 +33,9 @@ const Question = ({ index, question, onAnswerSelect, showAnswer }) => {
                     <div
                         key={index}
                         onClick={() => handleOptionClick(index)}
-                        className={`flex space-x-4 border-[1px] border-gray-text text-gray-text w-[450px] px-4 py-2 rounded-xl cursor-pointer ${selectedOption === index ? 'bg-blue-200' : 'bg-gray-200'
-                            } ${showAnswer && !isCorrect && option.label === correctAnswer ? 'bg-red-200' : ''}
-                        ${showAnswer && selectedOption === index && isCorrect ? 'bg-green-200' : ''}`}
+                        className={`flex space-x-4 border-[1px] border-gray-text text-gray-text w-[450px] px-4 py-2 rounded-xl ${showAnswer ? 'pointer-events-none' : ''} cursor-pointer ${selectedOption === index ? 'bg-blue-200' : 'bg-gray-200'
+                            } ${showAnswer && !isCorrect && option.label === correctAnswer ? 'bg-red-200 pointer-events-none' : ''}
+                        ${showAnswer && selectedOption === index && isCorrect ? 'bg-green-200 pointer-events-none' : ''}`}
                     >
                         <p>{option.label} :</p>
                         <p dangerouslySetInnerHTML={{ __html: option.content }}></p>

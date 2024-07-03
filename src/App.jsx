@@ -25,11 +25,13 @@ import QuestionAdminScreen from './admin/features/question/QuestionAdminScreen'
 import UserDetail from './admin/features/users/components/UserDetail'
 import TopicStudy from './features/learning-self/components/TopicStudy'
 import LearningSelf from './features/learning-self/components/LearningSelf'
+import Study from './features/learning-self/components/Study'
+import ReactModal from 'react-modal'
 
 function App() {
   const queryClient = new QueryClient()
   const isLoggedIn = useSelector((state) => state.auth.isLogin)
-  console.log(isLoggedIn)
+  ReactModal.setAppElement('#root');
   return (
     <>
       <QueryClientProvider client={queryClient}>
@@ -57,7 +59,22 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route path="/topicStudy" element={<TopicStudy />}></Route>
+            <Route
+              path="/topicStudy"
+              element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <TopicStudy />
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route
+              path="/study/:id"
+              element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <Study />
+                </ProtectedRoute>
+              }
+            ></Route>
             <Route
               path="/courses"
               element={

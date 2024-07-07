@@ -45,22 +45,6 @@ const SignInScreen = () => {
       </div>
       <p className="text-center pt-10 text-2xl text-[#334d6e;]">ĐĂNG NHẬP</p>
       <div className="flex flex-col justify-center items-center pt-6">
-        <div>
-          <button className="bg-gray-200  text-slate-600 py-[6px] px-8 rounded-lg flex items-center ">
-            Đăng nhập bằng google
-            <span className="pl-2">
-              <FcGoogle size="24px" />
-            </span>
-          </button>
-        </div>
-        <div className="pt-5">
-          <button className="bg-blue-500 text-white   py-[6px] px-6 rounded-lg flex items-center ">
-            Đăng nhập bằng facebook
-            <span className="pl-2">
-              <FaSquareFacebook size="24px" />
-            </span>
-          </button>
-        </div>
         <p className="pt-8 text-gray-700">Hoặc đăng nhập</p>
         <div className="pt-8">
           <form action="" onSubmit={handleSubmit(onSubmit)}>

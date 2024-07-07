@@ -6,6 +6,12 @@ import { BaseButton } from '../../../../components/Button'
 import { useNavigate } from 'react-router-dom'
 
 const UserAdminScreen = () => {
+  const Roles = {
+    1: 'Supper Admin',
+    2: 'Admin',
+    3: 'Mod',
+    4: 'User'
+  }
   const { data } = useQuery({ queryKey: ['users'], queryFn: users })
   const navigate = useNavigate()
   console.log(data)
@@ -56,7 +62,9 @@ const UserAdminScreen = () => {
                 <td className="border border-slate-700 py-[20px] pl-[16px]">
                   {user.status}
                 </td>
-                <td className="border border-slate-700 py-[20px] pl-[16px]"></td>
+                <td className="border border-slate-700 py-[20px] pl-[16px]">
+                  {Roles[user.roleId]}
+                </td>
                 <td className="border border-slate-700 py-[12px] pl-[10px] ">
                   <BaseButton
                     title="Chi tiết"

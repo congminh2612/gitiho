@@ -31,7 +31,7 @@ import ReactModal from 'react-modal'
 function App() {
   const queryClient = new QueryClient()
   const isLoggedIn = useSelector((state) => state.auth.isLogin)
-  ReactModal.setAppElement('#root');
+  ReactModal.setAppElement('#root')
   return (
     <>
       <QueryClientProvider client={queryClient}>

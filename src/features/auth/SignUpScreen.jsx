@@ -28,7 +28,6 @@ const SignUpScreen = () => {
       .min(1, { message: 'Không được để trống trường này' })
       .email({ message: 'Email không hợp lệ' }),
     gender: z.string()
-
   })
   const {
     handleSubmit,
@@ -41,8 +40,14 @@ const SignUpScreen = () => {
       ...schema
     })
   })
-  const { data: emails, isSuccess: isSuccessEmail } = useQuery({ queryKey: ['emails'], queryFn: getAllEmail })
-  const { data: phones, isSuccess: isSuccessPhone } = useQuery({ queryKey: ['phones'], queryFn: getAllPhone })
+  const { data: emails, isSuccess: isSuccessEmail } = useQuery({
+    queryKey: ['emails'],
+    queryFn: getAllEmail
+  })
+  const { data: phones, isSuccess: isSuccessPhone } = useQuery({
+    queryKey: ['phones'],
+    queryFn: getAllPhone
+  })
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -51,9 +56,12 @@ const SignUpScreen = () => {
     onSuccess(data) {
       if (data.status == 200) {
         console.log(data)
-        toast.success("Đăng ký thành công tài khoản thành công , vui lòng check email của bạn", {
-          duration: 5000
-        })
+        toast.success(
+          'Đăng ký thành công tài khoản thành công , vui lòng check email của bạn',
+          {
+            duration: 5000
+          }
+        )
         reset()
       }
     },
@@ -62,30 +70,33 @@ const SignUpScreen = () => {
     }
   })
   const onSubmit = (data) => {
-
     if (isSuccessEmail && isSuccessPhone) {
       console.log(data)
-      if ((phones.includes(data.phoneNumber)) || (emails.data.includes(data.email))) {
-        toast.error("Số điện thoại hoặc email của bạn đã được đăng ký")
-      }
-      else {
+      if (
+        phones.includes(data.phoneNumber) ||
+        emails.data.includes(data.email)
+      ) {
+        toast.error('Số điện thoại hoặc email của bạn đã được đăng ký')
+      } else {
         mutation.mutate(data)
       }
     }
-
-
   }
   return (
     <div className="max-w-[600px] mx-auto h-[600px] my-[100px] shadow-lg shadow-blue-400">
       <div>
-        <Toaster position="bottom-right" reverseOrder={false} toastOptions={{
-          style: {
-            width: '500px',
-            borderRadius: '8px',
-            background: '#333',
-            color: '#fff',
-          },
-        }} />
+        <Toaster
+          position="bottom-right"
+          reverseOrder={false}
+          toastOptions={{
+            style: {
+              width: '500px',
+              borderRadius: '8px',
+              background: '#333',
+              color: '#fff'
+            }
+          }}
+        />
       </div>
       <p className="text-center pt-10 text-2xl text-[#334d6e;]">ĐĂNG KÝ</p>
       <div className="flex flex-col justify-center items-center ">
@@ -131,14 +142,24 @@ const SignUpScreen = () => {
                   </p>
                 )}
               </div>
-              <div className='flex space-x-6'>
-                <div className='flex items-center space-x-4'>
-                  <input type="radio" value='female' id='female' {...register('gender')} />
-                  <label htmlFor='female'>nữ</label>
+              <div className="flex space-x-6">
+                <div className="flex items-center space-x-4">
+                  <input
+                    type="radio"
+                    value="female"
+                    id="female"
+                    {...register('gender')}
+                  />
+                  <label htmlFor="female">nữ</label>
                 </div>
-                <div className='flex items-center space-x-4'>
-                  <input type="radio" value='male' id='male' {...register('gender')} />
-                  <label htmlFor='male'>nam</label>
+                <div className="flex items-center space-x-4">
+                  <input
+                    type="radio"
+                    value="male"
+                    id="male"
+                    {...register('gender')}
+                  />
+                  <label htmlFor="male">nam</label>
                 </div>
               </div>
               <div>

@@ -27,8 +27,9 @@ const RadioInput = (props) => {
                         <div className="text-sm">
                           <RadioGroup.Label
                             as="p"
-                            className={`font-medium  ${checked ? 'text-white' : 'text-gray-900'
-                              }`}
+                            className={`font-medium  ${
+                              checked ? 'text-white' : 'text-gray-900'
+                            }`}
                           >
                             {option.label}
                           </RadioGroup.Label>

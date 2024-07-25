@@ -1,12 +1,7 @@
-import {
-  Controller,
-} from 'react-hook-form'
+import { Controller } from 'react-hook-form'
 import RadioInput from './RadioInput'
 
-
-const RadioController = (
-  props
-) => {
+const RadioController = (props) => {
   const { name, control, options, disabled } = props
   return (
     <div onClick={(e) => e.stopPropagation()}>

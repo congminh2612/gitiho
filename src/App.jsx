@@ -27,6 +27,8 @@ import TopicStudy from './features/learning-self/components/TopicStudy'
 import LearningSelf from './features/learning-self/components/LearningSelf'
 import Study from './features/learning-self/components/Study'
 import ReactModal from 'react-modal'
+import QuestionsScreen from './features/questions/QuestionsScreen'
+import ModAdminScreen from './admin/features/mod/ModAdminScreen'
 
 function App() {
   const queryClient = new QueryClient()
@@ -43,6 +45,7 @@ function App() {
             <Route path="/news" element={<NewsScreen />} />
             <Route path="/news/:id" element={<NewDetail />} />
             <Route path="/forum" element={<ForumScreen />} />
+            <Route path="/question" element={<QuestionsScreen />} />
             <Route
               path="/learning-process"
               element={
@@ -91,6 +94,7 @@ function App() {
             <Route path="news" element={<NewAdminScreen />} />
             <Route path="topic" element={<TopicAdminScreen />} />
             <Route path="question" element={<QuestionAdminScreen />} />
+            <Route path="mod" element={<ModAdminScreen />} />
           </Route>
         </Routes>
       </QueryClientProvider>

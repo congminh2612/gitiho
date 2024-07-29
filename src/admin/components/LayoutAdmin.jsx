@@ -8,12 +8,12 @@ const LayoutAdmin = () => {
       <div>
         <HeaderAdmin />
       </div>
-      <div className="grid grid-cols-12">
-        <div className="col-span-2 bg-slate-200">
+      <div className="grid grid-cols-7">
+        <div className="col-span-1 bg-slate-600 h-[100vh]">
           <SideBarAdmin />
         </div>
-        <div className="col-span-10">
-          <div className="w-full h-[100vh] ">
+        <div className="col-span-6">
+          <div className="w-full h-[100vh] overflow-auto">
             <Outlet />
           </div>
         </div>

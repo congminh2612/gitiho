@@ -5,6 +5,8 @@ import { PiShoppingCartSimpleBold } from 'react-icons/pi'
 import { FaQuestion } from 'react-icons/fa6'
 import { PiNewspaperClippingDuotone } from 'react-icons/pi'
 import { MdOutlineTopic } from 'react-icons/md'
+import { GrUserAdmin } from 'react-icons/gr'
+import { IoMdHome } from 'react-icons/io'
 
 const SidebarLink = ({ to, children }) => {
   const location = useLocation()
@@ -14,7 +16,7 @@ const SidebarLink = ({ to, children }) => {
     <Link to={to}>
       <div
         className={`flex pl-8 py-3 mt-6 space-x-6 items-center hover:bg-slate-400 hover:cursor-pointer ${
-          isActive ? 'bg-slate-400' : ''
+          isActive ? '' : ''
         }`}
       >
         {children}
@@ -26,26 +28,26 @@ const SidebarLink = ({ to, children }) => {
 const SideBarAdmin = () => {
   return (
     <div className="h-[100vh]  border-r-2 border-gray-300">
-      <div className="pt-[80px] space-y-8">
+      <div className="pt-[80px] space-y-8 ">
         <SidebarLink to="users">
-          <BsPersonFillGear size={28} />
-          <p className="text-xl pt-[2px]">User</p>
+          <IoMdHome className="text-white" size={28} />
+          <p className="text-base pt-[2px] text-white">Trang chủ</p>
         </SidebarLink>
-        <SidebarLink to="learning">
-          <PiShoppingCartSimpleBold size={28} />
-          <p className="text-xl pt-[2px]">Learning</p>
+        <SidebarLink to="users">
+          <BsPersonFillGear className="text-white" size={28} />
+          <p className="text-base pt-[2px] text-white">Quản lí người dùng</p>
         </SidebarLink>
-        <SidebarLink to="question">
-          <FaQuestion size={28} />
-          <p className="text-xl pt-[2px]">Question</p>
+        <SidebarLink to="mod">
+          <GrUserAdmin className="text-white" size={28} />
+          <p className="text-base pt-[2px] text-white">Quản lí mod</p>
         </SidebarLink>
         <SidebarLink to="topic">
-          <MdOutlineTopic size={28} />
-          <p className="text-xl pt-[2px]">Topic</p>
+          <MdOutlineTopic className="text-white" size={28} />
+          <p className="text-base pt-[2px] text-white">Quản lí topic </p>
         </SidebarLink>
         <SidebarLink to="news">
-          <PiNewspaperClippingDuotone size={28} />
-          <p className="text-xl pt-[2px]">News</p>
+          <PiNewspaperClippingDuotone className="text-white" size={28} />
+          <p className="text-base pt-[2px] text-white">Quản lí tin tức</p>
         </SidebarLink>
       </div>
     </div>

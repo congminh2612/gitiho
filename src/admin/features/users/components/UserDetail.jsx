@@ -1,11 +1,11 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { user } from '../services/userDetail'
+import { users } from '../../../services/users'
 import { useForm } from 'react-hook-form'
 import TextInput from '../../../../components/Input/TextInput'
-import { updateUser } from '../services/updateUser'
 import toast, { Toaster } from 'react-hot-toast'
+import { updateUser } from '../../../services/updateUser'
 
 const UserDetail = () => {
   const { id } = useParams()

@@ -5,3 +5,10 @@
 * {
   font-family: Muli, sans-serif;
 }
+
+.react-datepicker-wrapper input {
+  @apply w-[400px] py-[9.5px] border border-gray-400 bg-slate-200 rounded-md pl-2;
+}
+.react-datepicker__input-container .react-datepicker__calendar-icon {
+  @apply top-1 right-1;
+}

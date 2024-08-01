@@ -11,16 +11,21 @@ export const headerNavigateItem = [
   },
   {
     id: 3,
+    label: 'Thi',
+    link: '/exam'
+  },
+  {
+    id: 4,
     label: 'Diễn đàn',
     link: '/forum'
   },
   {
-    id: 4,
+    id: 5,
     label: 'Tin tức',
     link: '/news'
   },
   {
-    id: 5,
+    id: 6,
     label: 'Tiến trình học tập',
     link: '/learning-process'
   }

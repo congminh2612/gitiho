@@ -1,12 +1,11 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { BsPersonFillGear } from 'react-icons/bs'
-import { PiShoppingCartSimpleBold } from 'react-icons/pi'
-import { FaQuestion } from 'react-icons/fa6'
 import { PiNewspaperClippingDuotone } from 'react-icons/pi'
 import { MdOutlineTopic } from 'react-icons/md'
 import { GrUserAdmin } from 'react-icons/gr'
 import { IoMdHome } from 'react-icons/io'
+import { MdForum } from "react-icons/md";
 
 const SidebarLink = ({ to, children }) => {
   const location = useLocation()
@@ -15,9 +14,8 @@ const SidebarLink = ({ to, children }) => {
   return (
     <Link to={to}>
       <div
-        className={`flex pl-8 py-3 mt-6 space-x-6 items-center hover:bg-slate-400 hover:cursor-pointer ${
-          isActive ? '' : ''
-        }`}
+        className={`flex pl-8 py-3 mt-6 space-x-6 items-center hover:bg-slate-400 hover:cursor-pointer ${isActive ? '' : ''
+          }`}
       >
         {children}
       </div>
@@ -44,6 +42,10 @@ const SideBarAdmin = () => {
         <SidebarLink to="topic">
           <MdOutlineTopic className="text-white" size={28} />
           <p className="text-base pt-[2px] text-white">Quản lí topic </p>
+        </SidebarLink>
+        <SidebarLink to="forum">
+          <MdForum className="text-white" size={28} />
+          <p className="text-base pt-[2px] text-white">Quản lí diễn đàn </p>
         </SidebarLink>
         <SidebarLink to="news">
           <PiNewspaperClippingDuotone className="text-white" size={28} />

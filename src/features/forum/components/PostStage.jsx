@@ -11,10 +11,15 @@ import { like } from '../service/like'
 import ModalShowComment from './ModalShowComment'
 import { openModal } from '../../../redux/slice/ModalSlice'
 import Comment from './Comment'
+import { BaseButton } from '../../../components/Button'
+import { ChangeStatusPost } from '../../../admin/services/changeStatus'
+import { notification } from 'antd'
 
 const PostStage = ({ status }) => {
   const dispatch = useDispatch()
   const account = useSelector((state) => state.auth.currentUser)
+  const role = account?.account?.roleId ?? 4
+  console.log(role)
   const queryClient = useQueryClient()
   const accountId = account?.account?.accountId ?? ''
   const {
@@ -26,6 +31,7 @@ const PostStage = ({ status }) => {
     queryFn:
       status === 'all' ? getAllPost : () => getPostByStatus(status, accountId)
   })
+  console.log(posts)
   const mutationLike = useMutation({
     mutationFn: (postId) => like(postId, accountId),
     onSuccess(data) {
@@ -40,20 +46,56 @@ const PostStage = ({ status }) => {
     onSuccess(data) {
       queryClient.invalidateQueries()
     },
-    onError(e) {}
+    onError(e) { }
   })
   const checkIsLiked = (postLikes) => {
     return postLikes.some((like) => like.accountId === accountId)
   }
+  const [api, contextHolder] = notification.useNotification();
+  const openNotificationApprovedPost = (placement) => {
+    api.success({
+      message: 'Thông báo',
+      description: 'Bài viết đã được phê duyệt !',
+      placement,
+    });
+  };
+
+  const openNotificationRejectedPost = (placement) => {
+    api.error({
+      message: 'Thông báo',
+      description: 'Bài viết đã bị từ chối !',
+      placement,
+    });
+  };
+
+  const openNotificationDeletedPost = (placement) => {
+    api.success({
+      message: 'Thông báo',
+      description: 'Bài viết đã được xóa thành công !',
+      placement,
+    });
+  };
   const handleOpenModal = (postId, postFile) => {
     dispatch(openModal({ postId, postFile }))
   }
-  console.log(posts)
+  const handleApprove = async (post) => {
+    await ChangeStatusPost(post.postId, 'Approved');
+    queryClient.invalidateQueries()
+    openNotificationApprovedPost('topRight');
+  }
+  const handleRejectedPost = async (post) => {
+    await ChangeStatusPost(post.postId, 'Rejected');
+    openNotificationRejectedPost('topRight');
+    queryClient.invalidateQueries()
+  };
+  const handleDelete = async (postId) => {
+  }
   return (
     <div>
       {isLoading && <div>Loading</div>}
       {posts && posts.length > 0 ? (
         <div>
+          {contextHolder}
           {posts.map((post) => {
             const isLiked = checkIsLiked(post.postlikes)
             return (
@@ -100,7 +142,18 @@ const PostStage = ({ status }) => {
                   </div>
                 </div>
                 <div>
-                  <Comment postId={post.postId} />
+                  {(role != 2 && role != 1) && (
+                    <Comment postId={post.postId} />
+                  )}
+                </div>
+                <div>
+                  {(role == 1 || role == 2) && (
+                    <div className='space-x-4 pt-10'>
+                      {post.status != 'Approved' && <BaseButton handleClick={() => handleApprove(post)} className='py-[6px] px-4 hover:opacity-75 bg-green-700' title='Duyệt' />}
+                      {post.status == 'Pending' && <BaseButton handleClick={() => handleRejectedPost(post)} className='py-[6px] px-4 hover:opacity-75' title='Từ chối' />}
+                      <BaseButton handleClick={() => handleDelete(post)} className='py-[6px] px-4 hover:opacity-75 bg-slate-700' title='Xóa bài' />
+                    </div>
+                  )}
                 </div>
               </div>
             )

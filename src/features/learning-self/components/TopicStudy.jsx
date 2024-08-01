@@ -22,12 +22,13 @@ const TopicStudy = () => {
   const {
     data: topicStudy,
     refetch,
-    isLoading
+    isSuccess
   } = useQuery({
     queryKey: ['topicStudy', grade, subjectId, currentUser.accountId],
     queryFn: () => GetTopicByGrade(grade, subjectId, 1, currentUser.accountId),
     enabled: !!grade
   })
+  console.log(topicStudy)
   return (
     <div className="container mx-auto px-[100px]">
       <div className="flex items-center mt-[80px]">
@@ -57,7 +58,7 @@ const TopicStudy = () => {
         {topicStudy && JSON.stringify(topicStudy.data) === '[]' && (
           <div>Rất tiếc chúng tôi chưa có bài tập cho phần này</div>
         )}
-        {topicStudy && JSON.stringify(topicStudy.data) !== '[]' && (
+        {isSuccess && JSON.stringify(topicStudy.data) !== '[]' && (
           <div className="space-y-4">
             {topicStudy.data.map((topic) => {
               return (
@@ -66,7 +67,11 @@ const TopicStudy = () => {
                   className="bg-subject text-white py-2 px-4 rounded-xl w-[450px] hover:opacity-75 cursor-pointer"
                   onClick={() => navigate(`/study/${topic.topicId}`)}
                 >
-                  <p>{topic.topicName}</p>
+                  {/* <p>{topic.topicName}</p> */}
+                  <div>
+                    <p>Thời gian làm bài  {topic.duration}</p>
+                    <p>Số lượng câu hỏi {topic.totalQuestion}</p>
+                  </div>
                 </div>
               )
             })}

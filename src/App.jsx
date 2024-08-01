@@ -29,6 +29,12 @@ import Study from './features/learning-self/components/Study'
 import ReactModal from 'react-modal'
 import QuestionsScreen from './features/questions/QuestionsScreen'
 import ModAdminScreen from './admin/features/mod/ModAdminScreen'
+import AddModScreen from './admin/features/mod/AddModScreen'
+import ForumAdminScreen from './admin/features/forum/ForumAdminScreen'
+import TakeExam from './features/learning/TakeExam'
+import ExamScreen from './features/learning/ExamScreen'
+import ExamStage from './features/learning/ExamStage'
+import ExamResult from './features/learning/ExamResult'
 
 function App() {
   const queryClient = new QueryClient()
@@ -51,6 +57,38 @@ function App() {
               element={
                 <ProtectedRoute isLoggedIn={isLoggedIn}>
                   <LearningProcess />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/exam"
+              element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <ExamScreen />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/takeExam"
+              element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <TakeExam />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/examStage"
+              element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <ExamStage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/examResult"
+              element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <ExamResult />
                 </ProtectedRoute>
               }
             />
@@ -95,6 +133,8 @@ function App() {
             <Route path="topic" element={<TopicAdminScreen />} />
             <Route path="question" element={<QuestionAdminScreen />} />
             <Route path="mod" element={<ModAdminScreen />} />
+            <Route path="forum" element={<ForumAdminScreen />} />
+            <Route path="mod/add" element={<AddModScreen />} />
           </Route>
         </Routes>
       </QueryClientProvider>

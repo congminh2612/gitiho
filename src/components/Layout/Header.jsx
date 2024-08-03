@@ -51,12 +51,13 @@ const Header = () => {
             {currentUser ? (
               <div className="flex items-center space-x-4">
                 <Menu
-                  icon={<IoMdPerson size="24" />}
+                  icon={<img width={50} src={currentUser?.account.avatar ?? '/public/Image/Avatar_Null.png'} className='rounded-full' />}
                   items={[
-                    { label: 'Profile' },
+                    { label: 'Profile', onClick: () => navigate('/profile') },
                     { label: 'Settings' },
                     { label: 'Logout', onClick: () => handleLogout() }
                   ]}
+                  className="bg-gray-200 shadow-md"
                 />
 
                 <p> {currentUser.account.fullName}</p>

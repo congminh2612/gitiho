@@ -35,11 +35,21 @@ import TakeExam from './features/learning/TakeExam'
 import ExamScreen from './features/learning/ExamScreen'
 import ExamStage from './features/learning/ExamStage'
 import ExamResult from './features/learning/ExamResult'
+import ProtectedRouteAdmin from './components/protected-route/ProtectedRouteAdmin'
+import ProfileScreen from './features/profile/components/ProfileScreen'
 
 function App() {
   const queryClient = new QueryClient()
   const isLoggedIn = useSelector((state) => state.auth.isLogin)
-  ReactModal.setAppElement('#root')
+  const account = useSelector((state) => state.auth.currentUser?.account)
+  const roleId = account?.roleId ?? ''
+  let isAdmin = false
+  if (roleId != 2) {
+    isAdmin = false
+  } else {
+    isAdmin = true
+  }
+
   return (
     <>
       <QueryClientProvider client={queryClient}>
@@ -52,6 +62,14 @@ function App() {
             <Route path="/news/:id" element={<NewDetail />} />
             <Route path="/forum" element={<ForumScreen />} />
             <Route path="/question" element={<QuestionsScreen />} />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <ProfileScreen />
+                </ProtectedRoute>
+              }
+            />
             <Route
               path="/learning-process"
               element={
@@ -125,7 +143,16 @@ function App() {
               }
             />
           </Route>
-          <Route path="/admin" element={<LayoutAdmin />}>
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute isLoggedIn={isLoggedIn}>
+                <ProtectedRouteAdmin isAdmin={isAdmin}>
+                  <LayoutAdmin />
+                </ProtectedRouteAdmin>
+              </ProtectedRoute>
+            }
+          >
             <Route path="users" element={<UserAdminScreen />} />
             <Route path="users/:id" element={<UserDetail />} />
             <Route path="learning" element={<LearningAdminScreen />} />

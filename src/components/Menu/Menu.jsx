@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react'
+import { twMerge } from 'tailwind-merge'
 import { useOnClickOutside } from 'usehooks-ts'
 
-const Menu = ({ icon, items }) => {
+const Menu = ({ icon, items, className }) => {
   const [menuOpen, setMenuOpen] = useState(false)
   const menuRef = useRef(null)
 
@@ -22,7 +23,10 @@ const Menu = ({ icon, items }) => {
       </div>
       {menuOpen && (
         <div
-          className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20"
+          className={twMerge(
+            'absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20',
+            className
+          )}
           ref={menuRef}
         >
           {items.map((item, index) => (

@@ -1,0 +1,369 @@
+.kSNmKm {
+    padding: 20px 0px;
+    min-height: calc(100vh - 186px);
+    position: relative;
+}
+
+/* 
+.gTLZXx {
+    width: 80%;
+} */
+
+.jMEXQr {
+    font-size: 26px;
+    line-height: 40px;
+    color: rgb(62, 85, 11);
+    font-weight: 500;
+    display: inline-block;
+}
+
+.jMEXQr svg {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.jMEXQr span {
+    position: relative;
+    top: 3px;
+}
+
+/* .gQRQLT {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    /* justify-content: space-around; */
+ .dLmSmZ {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    flex: 0 0 53.3333%;
+    max-width: 58.3333%;
+}
+
+.oDHHe {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.hoRZna {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    flex: 0 0 40%;
+    max-width: 50%;
+}
+
+.dElWAp {
+    padding: 25px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    border: 1px solid rgb(117, 120, 127);
+    border-radius: 32px;
+    margin-top: 20px;
+}
+
+.iPDtvz {
+    width: 60px;
+    height: 60px;
+    margin-right: 30px;
+    border-radius: 50%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    background: rgb(134, 176, 38);
+}
+
+.iPDtvz svg {
+    width: 35px;
+    fill: rgb(255, 255, 255);
+}
+
+.ebSjnA p {
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 26px;
+    margin-bottom: 6px;
+}
+
+.ebSjnA span {
+    color: rgb(109, 109, 120);
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.lfJrQj {
+    width: 60px;
+    height: 60px;
+    margin-right: 30px;
+    border-radius: 50%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    background: rgb(255, 94, 98);
+}
+
+.YuDTR {
+    width: 60px;
+    height: 60px;
+    margin-right: 30px;
+    border-radius: 50%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    background: rgb(45, 156, 219);
+}
+
+.gwbrfO {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    flex: 0 0 41.6667%;
+    max-width: 41.6667%;
+
+}
+
+.bitfhh {
+    padding: 0px 20px;
+}
+
+.jjsGCG {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.dAnFRi {
+    display: inline-block;
+    padding: 10px;
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.235) -1px 1px 6px;
+    border-radius: 50%;
+    margin-top: 5px;
+    margin-right: 15px;
+    position: relative;
+}
+
+.dAnFRi img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.dAnFRi .edit {
+    position: absolute;
+    right: -5px;
+    top: 60%;
+    cursor: pointer;
+}
+
+.dAnFRi .edit svg {
+    width: 40px;
+    height: 40px;
+}
+
+.hbOsiM {
+    display: inline-block;
+    margin: 5px;
+    color: black;
+}
+
+.hbOsiM p {
+    width: unset;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 5px;
+    line-height: 35px;
+    font-size: 30px;
+}
+
+.ddbBzc {
+    margin-top: 30px;
+}
+
+.cHgnBy {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 15px 0px;
+    margin: 0px 15px 0px 25px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out 0s;
+}
+
+.iBYITo {
+    margin-right: 10px;
+}
+
+.iBYITo svg {
+    width: 40px;
+    height: 40px;
+}
+
+.fmBJFo {
+    width: 35%;
+}
+
+.fmBJFo p {
+    margin: 0px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.dIwkuJ {
+    margin-left: auto;
+}
+
+.dIwkuJ .text {
+    margin: 0px 10px 0px 0px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    top: 3px;
+}
+
+.dIwkuJ .btn-edit {
+    cursor: pointer;
+}
+
+.ant-modal-content {
+    border-radius: 50px;
+}
+
+.modal-header {
+    justify-content: center;
+    position: relative;
+    border-bottom: none;
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem;
+    border-top-left-radius: calc(0.3rem - 1px);
+    border-top-right-radius: calc(0.3rem - 1px);
+}
+
+.modal-title {
+    margin: auto;
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+.iXziXU {
+    display: inline-block;
+    padding: 10px;
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.235) -1px 1px 6px;
+    border-radius: 50%;
+    margin-top: 5px;
+    margin-right: 15px;
+    position: relative;
+}
+
+.iXziXU img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.iXziXU .edit {
+    position: absolute;
+    right: 0px;
+    top: 65%;
+    cursor: pointer;
+}
+
+.iXziXU .edit svg {
+    width: 50px;
+    height: 50px;
+}
+
+.modal-body {
+    padding: 0 2.5rem 1rem;
+}
+
+.row-info {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+}
+
+.row-info label {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.row-info .row-title {
+    min-width: 115px;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(0,0,0,.85);
+    line-height: 26px;
+}
+
+.row-info input {
+    margin-left: 20px;
+    border: none;
+    font-size: 18px;
+    color: rgba(0,0,0,.5);
+    width: 100%;
+    outline: none;
+}
+
+.row-info .required{
+    color: red;
+}
+
+.modal-change-password-body .input-group {
+    margin-top: 10px;
+    display: flex;
+}
+
+.modal-change-password-body .input-group-text {
+    background: #f3f3f3;
+    padding-right: 0;
+}
+
+.modal-change-password-body .input-group-text svg {
+    width: 20px;
+    height: 45px;
+    fill: rgba(0,0,0,.35);
+}
+
+.jZGNBW {
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.modal-change-password-body input {
+    font-size: 16px;
+    height: 45px;
+    background: #f3f3f3;
+    border-radius: 10px;
+    border-left: none;
+}
+
+.modal-change-password-body .form-control label{
+    font-size: 30px;
+}

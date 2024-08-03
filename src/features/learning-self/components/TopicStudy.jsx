@@ -69,7 +69,7 @@ const TopicStudy = () => {
                 >
                   {/* <p>{topic.topicName}</p> */}
                   <div>
-                    <p>Thời gian làm bài  {topic.duration}</p>
+                    <p>Thời gian làm bài {topic.duration}</p>
                     <p>Số lượng câu hỏi {topic.totalQuestion}</p>
                   </div>
                 </div>

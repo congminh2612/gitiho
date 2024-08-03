@@ -5,7 +5,7 @@ import { PiNewspaperClippingDuotone } from 'react-icons/pi'
 import { MdOutlineTopic } from 'react-icons/md'
 import { GrUserAdmin } from 'react-icons/gr'
 import { IoMdHome } from 'react-icons/io'
-import { MdForum } from "react-icons/md";
+import { MdForum } from 'react-icons/md'
 
 const SidebarLink = ({ to, children }) => {
   const location = useLocation()
@@ -14,8 +14,9 @@ const SidebarLink = ({ to, children }) => {
   return (
     <Link to={to}>
       <div
-        className={`flex pl-8 py-3 mt-6 space-x-6 items-center hover:bg-slate-400 hover:cursor-pointer ${isActive ? '' : ''
-          }`}
+        className={`flex pl-8 py-3 mt-6 space-x-6 items-center hover:bg-slate-400 hover:cursor-pointer ${
+          isActive ? '' : ''
+        }`}
       >
         {children}
       </div>

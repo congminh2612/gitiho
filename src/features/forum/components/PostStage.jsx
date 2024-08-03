@@ -46,50 +46,49 @@ const PostStage = ({ status }) => {
     onSuccess(data) {
       queryClient.invalidateQueries()
     },
-    onError(e) { }
+    onError(e) {}
   })
   const checkIsLiked = (postLikes) => {
     return postLikes.some((like) => like.accountId === accountId)
   }
-  const [api, contextHolder] = notification.useNotification();
+  const [api, contextHolder] = notification.useNotification()
   const openNotificationApprovedPost = (placement) => {
     api.success({
       message: 'Thông báo',
       description: 'Bài viết đã được phê duyệt !',
-      placement,
-    });
-  };
+      placement
+    })
+  }
 
   const openNotificationRejectedPost = (placement) => {
     api.error({
       message: 'Thông báo',
       description: 'Bài viết đã bị từ chối !',
-      placement,
-    });
-  };
+      placement
+    })
+  }
 
   const openNotificationDeletedPost = (placement) => {
     api.success({
       message: 'Thông báo',
       description: 'Bài viết đã được xóa thành công !',
-      placement,
-    });
-  };
+      placement
+    })
+  }
   const handleOpenModal = (postId, postFile) => {
     dispatch(openModal({ postId, postFile }))
   }
   const handleApprove = async (post) => {
-    await ChangeStatusPost(post.postId, 'Approved');
+    await ChangeStatusPost(post.postId, 'Approved')
     queryClient.invalidateQueries()
-    openNotificationApprovedPost('topRight');
+    openNotificationApprovedPost('topRight')
   }
   const handleRejectedPost = async (post) => {
-    await ChangeStatusPost(post.postId, 'Rejected');
-    openNotificationRejectedPost('topRight');
+    await ChangeStatusPost(post.postId, 'Rejected')
+    openNotificationRejectedPost('topRight')
     queryClient.invalidateQueries()
-  };
-  const handleDelete = async (postId) => {
   }
+  const handleDelete = async (postId) => {}
   return (
     <div>
       {isLoading && <div>Loading</div>}
@@ -142,16 +141,30 @@ const PostStage = ({ status }) => {
                   </div>
                 </div>
                 <div>
-                  {(role != 2 && role != 1) && (
-                    <Comment postId={post.postId} />
-                  )}
+                  {role != 2 && role != 1 && <Comment postId={post.postId} />}
                 </div>
                 <div>
                   {(role == 1 || role == 2) && (
-                    <div className='space-x-4 pt-10'>
-                      {post.status != 'Approved' && <BaseButton handleClick={() => handleApprove(post)} className='py-[6px] px-4 hover:opacity-75 bg-green-700' title='Duyệt' />}
-                      {post.status == 'Pending' && <BaseButton handleClick={() => handleRejectedPost(post)} className='py-[6px] px-4 hover:opacity-75' title='Từ chối' />}
-                      <BaseButton handleClick={() => handleDelete(post)} className='py-[6px] px-4 hover:opacity-75 bg-slate-700' title='Xóa bài' />
+                    <div className="space-x-4 pt-10">
+                      {post.status != 'Approved' && (
+                        <BaseButton
+                          handleClick={() => handleApprove(post)}
+                          className="py-[6px] px-4 hover:opacity-75 bg-green-700"
+                          title="Duyệt"
+                        />
+                      )}
+                      {post.status == 'Pending' && (
+                        <BaseButton
+                          handleClick={() => handleRejectedPost(post)}
+                          className="py-[6px] px-4 hover:opacity-75"
+                          title="Từ chối"
+                        />
+                      )}
+                      <BaseButton
+                        handleClick={() => handleDelete(post)}
+                        className="py-[6px] px-4 hover:opacity-75 bg-slate-700"
+                        title="Xóa bài"
+                      />
                     </div>
                   )}
                 </div>
